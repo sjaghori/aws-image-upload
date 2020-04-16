@@ -15,8 +15,8 @@ public class AmazonConfig {
     @Bean
     public AmazonS3 s3() {
         AWSCredentials awsCredentials = new BasicAWSCredentials(
-                "AKIAISDAP2TXUKPBT6DQ",
-                "TTgzU5QGkHvSn2XPeWImcMlcHVi+Cd9QrCj1alEB"
+                "AKIAJKIYFP2FB42H3DMQ",
+                "zgLyFgn6h6jke1GlsiDRS74pH1JSszw9R7b2AohW"
         );
         return AmazonS3ClientBuilder
                 .standard()

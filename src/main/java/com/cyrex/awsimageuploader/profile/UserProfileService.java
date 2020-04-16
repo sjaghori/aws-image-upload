@@ -61,14 +61,14 @@ public class UserProfileService {
                 .orElse(new byte[0]);
     }
 
-    private Map<String, String> extractMetadata(MultipartFile file) {
+    public Map<String, String> extractMetadata(MultipartFile file) {
         Map<String, String> metaData = new HashMap<String, String>();
         metaData.put("Content-Type", file.getContentType());
         metaData.put("Content-Length", String.valueOf(file.getSize()));
         return metaData;
     }
 
-    private UserProfile getUserProfileOrThrow(UUID userprofileId) {
+    public UserProfile getUserProfileOrThrow(UUID userprofileId) {
         return userProfileDataAccessService
                 .getUserProfiles()
                 .stream()
@@ -79,7 +79,8 @@ public class UserProfileService {
                 );
     }
 
-    private void isImage(MultipartFile file) {
+
+    public void isImage(MultipartFile file) {
         if (!Arrays.asList(
                 ContentType.IMAGE_JPEG.getMimeType(),
                 ContentType.IMAGE_PNG.getMimeType(),
@@ -89,7 +90,7 @@ public class UserProfileService {
         }
     }
 
-    private void isFileEmpty(MultipartFile file) {
+    public void isFileEmpty(MultipartFile file) {
         if (file.isEmpty()) {
             throw new IllegalStateException("Cannot upload empty file [" + file.getSize() + "]");
         }
